@@ -1,0 +1,331 @@
+[gd_scene load_steps=26 format=3 uid="uid://b1vg81nueltj8"]
+
+[ext_resource type="Texture2D" uid="uid://cgbpq5lxnnehv" path="res://Steve_sStuff/Sheets/Heads.png" id="1_emoss"]
+[ext_resource type="Script" uid="uid://dy3p427wd073g" path="res://PlayAnime.gd" id="1_mlmfo"]
+[ext_resource type="Texture2D" uid="uid://3l0rss7tlbu3" path="res://Steve_sStuff/Sheets/eyes.png" id="2_xrhjs"]
+[ext_resource type="Script" uid="uid://c15fsvapwdfft" path="res://character_head.gd" id="3_bqp68"]
+[ext_resource type="Texture2D" uid="uid://cnuk5b34g1xdn" path="res://Steve_sStuff/Sheets/Mouths.png" id="3_xrhjs"]
+[ext_resource type="Script" uid="uid://dweeu21bql1is" path="res://MouthAnim.gd" id="5_2nqvi"]
+[ext_resource type="Script" uid="uid://vnepdubwli5s" path="res://eyeanim.gd" id="5_423lt"]
+[ext_resource type="Script" uid="uid://cmichl6icx6gd" path="res://hud.gd" id="8_423lt"]
+[ext_resource type="Script" uid="uid://fh76fuqtx3r" path="res://evlText.gd" id="9_415fy"]
+
+[sub_resource type="Animation" id="Animation_2nqvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_emoss"]
+resource_name = "eyeIdle1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xrhjs"]
+resource_name = "eyeIdle2"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_mlmfo"]
+resource_name = "eyeclose1"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_842uu"]
+resource_name = "eyeclose2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 3, 3]
+}
+
+[sub_resource type="Animation" id="Animation_423lt"]
+resource_name = "eyeclose3"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 6, 4]
+}
+
+[sub_resource type="Animation" id="Animation_bqp68"]
+resource_name = "eyeidle3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_842uu"]
+_data = {
+&"RESET": SubResource("Animation_2nqvi"),
+&"eyeIdle1": SubResource("Animation_emoss"),
+&"eyeIdle2": SubResource("Animation_xrhjs"),
+&"eyeclose1": SubResource("Animation_mlmfo"),
+&"eyeclose2": SubResource("Animation_842uu"),
+&"eyeclose3": SubResource("Animation_423lt"),
+&"eyeidle3": SubResource("Animation_bqp68")
+}
+
+[sub_resource type="Animation" id="Animation_2046w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_415fy"]
+resource_name = "mouthIdle1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1w1fh"]
+resource_name = "mouthIdle2"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_1031o"]
+resource_name = "mouthTalk1"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333, 0.8, 1.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 0, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_k7akx"]
+resource_name = "mouthidle3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_do11v"]
+resource_name = "mouthtalk2"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2, 0.433333, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 6, 4, 1, 4]
+}
+
+[sub_resource type="Animation" id="Animation_scvbj"]
+resource_name = "mouthtalk3"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.333333, 0.733333, 1.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 8, 10, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1w1fh"]
+_data = {
+&"RESET": SubResource("Animation_2046w"),
+&"mouthIdle1": SubResource("Animation_415fy"),
+&"mouthIdle2": SubResource("Animation_1w1fh"),
+&"mouthTalk1": SubResource("Animation_1031o"),
+&"mouthidle3": SubResource("Animation_k7akx"),
+&"mouthtalk2": SubResource("Animation_do11v"),
+&"mouthtalk3": SubResource("Animation_scvbj")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mlmfo")
+
+[node name="Character" type="Node2D" parent="."]
+position = Vector2(-22, -20)
+scale = Vector2(0.5, 0.5)
+
+[node name="CharacterHead" type="Sprite2D" parent="Character"]
+texture_filter = 1
+texture = ExtResource("1_emoss")
+hframes = 4
+frame = 1
+script = ExtResource("3_bqp68")
+
+[node name="eyes" type="Sprite2D" parent="Character"]
+texture_filter = 1
+texture = ExtResource("2_xrhjs")
+hframes = 8
+script = ExtResource("5_423lt")
+
+[node name="EyeAnim" type="AnimationPlayer" parent="Character/eyes"]
+libraries = {
+&"": SubResource("AnimationLibrary_842uu")
+}
+speed_scale = 2.446
+
+[node name="mouth" type="Sprite2D" parent="Character"]
+texture_filter = 1
+texture = ExtResource("3_xrhjs")
+hframes = 12
+script = ExtResource("5_2nqvi")
+
+[node name="MouthAnim" type="AnimationPlayer" parent="Character/mouth"]
+libraries = {
+&"": SubResource("AnimationLibrary_1w1fh")
+}
+speed_scale = 2.541
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hud" type="Node2D" parent="."]
+position = Vector2(-430, 243)
+script = ExtResource("8_423lt")
+
+[node name="Button" type="Button" parent="hud"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "SUBMIT
+"
+
+[node name="LineEdit" type="LineEdit" parent="hud"]
+offset_left = 71.0
+offset_right = 871.0
+offset_bottom = 50.0
+placeholder_text = "message"
+
+[node name="TextEdit" type="TextEdit" parent="hud"]
+offset_left = 71.0
+offset_top = -81.0
+offset_right = 871.0
+offset_bottom = -3.86
+text = "
+"
+placeholder_text = "message
+
+"
+
+[node name="TTSNode" type="Node2D" parent="."]
+script = ExtResource("9_415fy")
+
+[node name="HTTPRequestElevenLabs" type="HTTPRequest" parent="TTSNode"]
+
+[connection signal="pressed" from="hud/Button" to="hud" method="_on_button_pressed"]
+[connection signal="text_changed" from="hud/LineEdit" to="hud" method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="hud/LineEdit" to="hud" method="_on_line_edit_text_submitted"]
