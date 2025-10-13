@@ -125,7 +125,7 @@ scale = Vector2(0.56, 0.56)
 texture = ExtResource("1_i17vo")
 
 [node name="Mouth" type="Sprite2D" parent="."]
-position = Vector2(281, 0)
+position = Vector2(282, 0)
 scale = Vector2(0.56, 0.56)
 texture = ExtResource("2_slsjp")
 hframes = 3

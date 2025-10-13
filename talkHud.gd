@@ -23,8 +23,8 @@ func _ready():
 	
 
 func _on_button_pressed() -> void:
-	text_edit.text = msg
-	$"../TextToTalk".text_to_speech(msg)
+	#text_edit.text = msg
+	$"../TextToTalk".text_to_speech(text_edit.text)
 	$"../Mouth".doTalking(msg,$"../TextToTalk".totalDelay, $"../TextToTalk".talkTime)  # Pass a duration (e.g., 2 seconds)
 	
 
@@ -57,8 +57,4 @@ func parse_message(msg: String) -> Array:
 		var clean_msg = msg.replace(result.get_string(0), "").strip_edges()
 		return [clean_msg, time_value]
 	else:
-		return [msg, null]
-
-
-func _on_text_edit_text_changed(new_text: String) -> void:
-		msg = new_text
+		return [msg, ""]

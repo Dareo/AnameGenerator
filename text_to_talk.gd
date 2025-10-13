@@ -1,7 +1,8 @@
 extends Node2D
 @onready var http_request := $HTTPRequestElevenLabs
 var api_key = "sk_e2cb7b90f307c6afb038220d9ce027f7ef2ac34a48386acf"
-var voice_id = "8PfKHL4nZToWC3pbz9U9"
+var voice_id = "aCChyB4P5WEomwRsOKRh"
+
 #"8PfKHL4nZToWC3pbz9U9"
 #"EXAVITQu4vr4xnSDxMaL"
 #https://elevenlabs.io/app/voice-library?voiceId=RBnMinrYKeccY3vaUxlZ
