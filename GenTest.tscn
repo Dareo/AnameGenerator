@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3421a2kh1l41"]
+
+[ext_resource type="Texture2D" uid="uid://dugjaq52b075p" path="res://Steve_sStuff/LastSheet/H3.png" id="1_i17vo"]
+[ext_resource type="Texture2D" uid="uid://gax8krj23is3" path="res://Steve_sStuff/LastSheet/M2.png" id="2_slsjp"]
+[ext_resource type="Script" uid="uid://x3mptm3fotn" path="res://doMouthStuff.gd" id="3_bvp4q"]
+[ext_resource type="Texture2D" uid="uid://chaihffgba7fd" path="res://Steve_sStuff/LastSheet/E2.png" id="3_r1ndh"]
+[ext_resource type="Script" uid="uid://cmku5u73rxtcj" path="res://text_to_talk.gd" id="5_layk6"]
+[ext_resource type="Script" uid="uid://bj3jfmrsd2tvj" path="res://talkHud.gd" id="6_mgv6h"]
+
+[sub_resource type="Animation" id="Animation_slsjp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i17vo"]
+resource_name = "TalkIdle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r1ndh"]
+resource_name = "Talking"
+length = 2.0635
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.166667, 0.366667, 0.666667, 1.06667, 1.36667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 0, 1, 0, 1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bvp4q"]
+_data = {
+&"RESET": SubResource("Animation_slsjp"),
+&"TalkIdle": SubResource("Animation_i17vo"),
+&"Talking": SubResource("Animation_r1ndh")
+}
+
+[sub_resource type="Animation" id="Animation_bvp4q"]
+resource_name = "EyeIdle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_layk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mgv6h"]
+resource_name = "EyeBlink"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1s5l"]
+_data = {
+&"EyeBlink": SubResource("Animation_mgv6h"),
+&"EyeIdle": SubResource("Animation_bvp4q"),
+&"RESET": SubResource("Animation_layk6")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(281, 0)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("1_i17vo")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+position = Vector2(281, 0)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("2_slsjp")
+hframes = 3
+script = ExtResource("3_bvp4q")
+
+[node name="MouthAnimator2" type="AnimationPlayer" parent="Mouth"]
+libraries = {
+&"": SubResource("AnimationLibrary_bvp4q")
+}
+speed_scale = 1.559
+
+[node name="Eye" type="Sprite2D" parent="."]
+position = Vector2(281, 0)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("3_r1ndh")
+hframes = 2
+frame = 1
+
+[node name="EyeAnimator" type="AnimationPlayer" parent="Eye"]
+libraries = {
+&"": SubResource("AnimationLibrary_e1s5l")
+}
+
+[node name="TextToTalk" type="Node2D" parent="."]
+script = ExtResource("5_layk6")
+
+[node name="HTTPRequestElevenLabs" type="HTTPRequest" parent="TextToTalk"]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("6_mgv6h")
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = -406.0
+offset_top = 261.0
+offset_right = -338.0
+offset_bottom = 292.0
+text = "SUBMIT"
+
+[node name="TextEdit" type="TextEdit" parent="Node2D"]
+offset_left = -332.0
+offset_top = 262.0
+offset_right = 468.0
+offset_bottom = 292.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Node2D/Button" to="Node2D" method="_on_button_pressed"]
+[connection signal="text_changed" from="Node2D/TextEdit" to="Node2D" method="_on_text_edit_text_changed"]
